@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+	<title>Assignment #3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="dice.css">
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<div class="container">
+<div id="selector">
+	<ul>
+		<li class="dicetype" id="D2" onclick="changeCSS('1')";>D2</li>
+		<li class="dicetype" id="D6" onclick="changeCSS('2')";>D6</li>
+		<li class="dicetype" id="D10" onclick="changeCSS('3')";>D10</li>
+		<li class="dicetype" id="D20" onclick="changeCSS('4')";>D20</li>
+	</ul>
+</div>
+<div id="rollWindow">
+	<!-- where the die is visibly roller-->
+	<span id="rollText">1</span>
+
+</div>
+<br>
+<div id="ButtonBox">
+	<button class="rollbutton" id="rollbutton">ROLL!</button>
+</div>
+</div>
+<script type="text/javascript">
+	var result = 0; 
+	var dieTop = 6; 
+	document.getElementById('rollbutton').addEventListener("click", rolldice);
+
+	function rolldice(){
+		alert("dice has rolled");
+		result = ((Math.random() * (dieTop)) + 1);
+		result = Math.floor(result);
+		document.getElementById('rollWindow').innerHTML =  result;
+	}
+
+	function changeCSS(Cssbutton){
+		switch (Cssbutton) {
+			case '1': 
+				document.getElementById('rollWindow').style.cssText = "background-color: blue; color: white; border-radius: 100px;";
+				break;
+			case '2': 
+				document.getElementById('rollWindow').style.cssText = "background-color: red; color: white; border-radius: 20px;";
+				break;
+			case '3': 
+				document.getElementById('rollWindow').style.cssText = "background-color: green; color: white; border-radius: 10px;";
+				break;
+			case '4': 
+				document.getElementById('rollWindow').style.cssText = "background-color: yellow; color: black ; border-radius: 100px;";
+				break;
+			default: alert("Sorry, there is a problem with the program");
+		}
+	}
+</script>
+</body>
+</html>
